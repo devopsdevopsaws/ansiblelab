@@ -1,5 +1,5 @@
 - name: This playbook is to achive catlaogue service installtion and comm to mongodb
-  hosts: catlaogue
+  hosts: catalogue
   become: true
   tasks:
   - name: Setup NodeJS repos
