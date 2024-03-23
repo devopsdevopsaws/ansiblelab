@@ -1,0 +1,21 @@
+- name: This playbook is to achive catlaogue service installtion and comm to mongodb
+  hosts: catlaogue
+  become: true
+  tasks:
+  - name: Setup NodeJS repos
+    ansible.builtin.shell: "curl -sL https://rpm.nodesource.com/setup_lts.x | bash"
+
+  - name: This task is to Install NodeJS
+    ansible.builtin.yum:
+      name: nodejs
+      state: latest
+  
+  - name: check roboshop user
+    ansible.builtin.command: id roboshop
+    register: out
+  
+  - name: Print output
+    ansible.builtin.debug:
+      msg: {{out}}
+
+  
